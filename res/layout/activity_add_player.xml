@@ -1,0 +1,52 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/player2" />
+
+    <ImageButton
+        android:id="@+id/ib_camara"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="50px"
+        android:layout_marginRight="50px"
+        android:background="@null"
+        android:src="@drawable/camera" />
+
+    <ImageButton
+        android:id="@+id/ib_phoneArchive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/ib_camara"
+        android:layout_toRightOf="@+id/ib_camara"
+        android:background="@null"
+        android:src="@drawable/our_folder" />
+
+    <ImageButton
+        android:id="@+id/ib_gameArchive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/ib_camara"
+        android:layout_toLeftOf="@+id/ib_camara"
+        android:background="@null"
+        android:src="@drawable/our_folder" />
+
+    <ImageButton
+        android:id="@+id/ib_doneButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@null"
+        android:src="@drawable/our_folder" />
+
+</RelativeLayout>
