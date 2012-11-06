@@ -1,6 +1,10 @@
 package dice.game.android;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +21,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ResolveInfo;
@@ -31,7 +36,7 @@ import android.widget.Toast;
 
 public class AddPlayer extends Activity
 {
-
+private Bitmap photo ;
 	ImageButton gameArchiveButton;
 	ImageButton phoneArchiveButton;
 	ImageButton goToCamaraButton;
@@ -129,6 +134,7 @@ public class AddPlayer extends Activity
 		{
 		case PICK_FROM_CAMERA:
 			doCrop();
+			System.out.println("calling do crop from camera");
 
 			break;
 
@@ -144,7 +150,7 @@ public class AddPlayer extends Activity
 
 			if (extras != null)
 			{
-				Bitmap photo = extras.getParcelable("data");
+				 photo = extras.getParcelable("data");
 				playerImage.setImageBitmap(photo);
 
 				// mImageView.setImageBitmap(photo);
@@ -152,20 +158,80 @@ public class AddPlayer extends Activity
 
 			File f = new File(mImageCaptureUri.getPath());
 
-			// if (f.exists()) f.delete();
-
-			// does this work?
-			// Bitmap photo = extras.getParcelable("data");
-			// playerImage.setImageBitmap(photo);
-			
-			
+			 if (f.exists()) f.delete();
 		    File direct = new File(Environment.getExternalStorageDirectory() + "/MIAgamePhotos");
+		    
 
 		    if(!direct.exists())
 		     {
-		         if(direct.mkdir()) //directory is created;
-
+		    	direct.mkdir();
 		     }
+			ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+			photo.compress(Bitmap.CompressFormat.JPEG, 90, bytes);
+
+			//you can create a new file name "test.jpg" in sdcard folder.
+			File f2 = new File(Environment.getExternalStorageDirectory()
+			                        + File.separator + "/MIAgamePhotos/Avatar"+String.valueOf(System.currentTimeMillis())+".jpg");
+			try
+			{
+				f2.createNewFile();
+				FileOutputStream fo = new FileOutputStream(f2);
+				fo.write(bytes.toByteArray());
+				fo.close();
+				bytes.close();
+			} catch (IOException e)
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			//write the bytes in file
+		
+//			
+//			
+//			File file = new File(Environment.getExternalStorageDirectory().getPath() + "/Images/" + "image_name" + ".jpg");
+//			file.
+//			Uri imageUri = Uri.fromFile(file);
+//
+//			Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+//			intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
+//
+//			startActivityForResult(intent, 0);
+						  
+//			
+//		    File direct = new File(Environment.getExternalStorageDirectory() + "/MIAgamePhotos");
+//		    
+//
+//		    if(!direct.exists())
+//		     {
+//		         direct.mkdir();
+//
+//		     }
+//		    
+//			String FILENAME = ""+System.currentTimeMillis();
+//			
+//			FileOutputStream fos;
+//			try
+//			{
+//				fos = openFileOutput(FILENAME, Context.MODE_PRIVATE);
+//				photo.compress(Bitmap.CompressFormat.PNG, 90, fos);
+//				fos.flush();
+//				fos.close();
+//			} catch (FileNotFoundException e)
+//			{
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			} catch (IOException e)
+//			{
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//			
+			
+			
+		    
+		    
+		    
+		   
 			
 			break;
 
@@ -210,8 +276,8 @@ public class AddPlayer extends Activity
 		{
 			intent.setData(mImageCaptureUri);
 
-			intent.putExtra("outputX", 400);
-			intent.putExtra("outputY", 400);
+			intent.putExtra("outputX", 200);
+			intent.putExtra("outputY", 200);
 			intent.putExtra("aspectX", 1);
 			intent.putExtra("aspectY", 1);
 			intent.putExtra("scale", true);
