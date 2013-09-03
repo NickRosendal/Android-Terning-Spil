@@ -1,2 +1,6 @@
 eclipse.preferences.version=1
+encoding//src/dice/game/android/AddPlayer.java=UTF-8
+encoding//src/dice/game/android/GameSetup.java=UTF-8
+encoding//src/dice/game/android/TheGame.java=UTF-8
+encoding//src/dice/game/logic/Game.java=UTF-8
 encoding//src/dice/game/logic/GameTurn.java=UTF-8

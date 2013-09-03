@@ -12,8 +12,9 @@ public class GameTurn implements dice.game.designpatterns.Subject
 	private int PlayerId;
 	private Integer PreviusPlayerId;
 	private Cup theCup;
-	private int shakes;
+	private int shakes = 0;
 	private int directionToGo = 0;
+	private int lifts = 0;
 	private boolean wasMiaCalled = false;
 
 	public void setWasMiaCalled(boolean wasMiaCalled)
@@ -27,7 +28,8 @@ public class GameTurn implements dice.game.designpatterns.Subject
 		this.PlayerId = inPlayer;
 		this.PreviusPlayerId = inPassedFromPlayer;
 		this.theCup = inCup;
-		this.shakes = 0;
+//		this.shakes = 0;
+	//	this.lifts = 0;
 
 	}
 
@@ -39,19 +41,35 @@ public class GameTurn implements dice.game.designpatterns.Subject
 		theCup.roll();
 	}
 
-	public int[] liftCup()
+	// public int getPlayerId(){
+	// return PlayerId;
+	// }
+
+	public void liftCup()
 	{
 
 		if (shakes < 1)
 		{
-			return theCup.getCurrentRoll();
+			notifyObservers("askPlayerIfHeWasRight");
 		}
-		return null;
+		if (lifts < 1)
+		{
+			lifts++;
+			notifyObservers("showTheCub");
+		}
+	}
+
+	public int[] whatDidIRoll()
+	{
+		return theCup.getCurrentRoll();
 	}
 
 	public void passToNextPlayer()
 	{
-		notifyObservers("pass");
+		if (shakes > 0)
+		{
+			notifyObservers("passToRight");
+		}
 	}
 
 	public void wasThePlayerRight(boolean inTrueOrFalse)

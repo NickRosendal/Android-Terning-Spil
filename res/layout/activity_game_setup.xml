@@ -1,0 +1,52 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/greybackground">
+
+    <ImageButton
+            android:id="@+id/gotoAddPlayerIntentButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@android:color/transparent"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_menu_invite"/>
+
+    <ScrollView
+            android:id="@+id/ScrollView1"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_above="@+id/gotoAddPlayerIntentButton"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true">
+
+        <TableLayout
+                android:id="@+id/tablelayout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp">
+        </TableLayout>
+
+    </ScrollView>
+
+    <ImageButton
+            android:id="@+id/buttonStartGame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/ScrollView1"
+            android:background="@android:color/transparent"
+            android:src="@drawable/dice"/>
+
+    <ImageButton
+            android:id="@+id/infoButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_menu_home"
+            android:layout_centerHorizontal="true"
+            android:background="@android:color/transparent"
+            android:layout_alignBottom="@+id/gotoAddPlayerIntentButton"/>
+
+
+</RelativeLayout>

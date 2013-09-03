@@ -1,0 +1,63 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/gamelayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/table">
+
+    <ImageView
+            android:id="@+id/player"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/player_green"/>
+
+    <TableLayout
+            android:id="@+id/table_layout_players"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:gravity="bottom">
+    </TableLayout>
+
+    <ImageView
+            android:id="@+id/player2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/player_green"
+            android:visibility="invisible"/>
+
+    <ImageView
+            android:id="@+id/iv_cub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/cub"/>
+
+    <ImageView
+            android:id="@+id/imageDice1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/iv_cub"
+            android:layout_alignLeft="@+id/iv_cub"
+            android:paddingRight="90dp"
+            android:src="@drawable/dice6"
+            android:visibility="invisible"/>
+
+    <ImageView
+            android:id="@+id/imageDice2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/imageDice1"
+            android:layout_centerHorizontal="true"
+            android:paddingLeft="90dp"
+            android:src="@drawable/dice6"
+            android:visibility="invisible"/>
+
+</RelativeLayout>

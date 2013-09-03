@@ -1,16 +1,32 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+                android:id="@+id/rl_start_up"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/greybackground">
 
-    <Button
-        android:id="@+id/gotoAddPlayerIntentButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginBottom="15dp"
-        android:text="Add Player" />
+    <ImageView
+            android:id="@+id/image_start_up_cup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/cub"/>
+
+    <TextView
+            android:id="@+id/introText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="bottom"
+            android:text="@string/splashBottomText"
+            android:textAppearance="?android:attr/textAppearanceMedium" android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true" android:layout_below="@+id/image_start_up_cup"
+            android:layout_alignParentRight="true"
+            android:autoText="false"
+            />
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/androidbanner2"
+            android:id="@+id/imageView" android:layout_centerHorizontal="true" android:layout_alignParentTop="true"/>
 
 </RelativeLayout>

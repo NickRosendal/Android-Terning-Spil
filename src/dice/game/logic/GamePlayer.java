@@ -1,12 +1,18 @@
 package dice.game.logic;
 
+import java.io.Serializable;
+
 //import android.graphics.drawable.Drawable;
 import dice.game.storage.OldPlayer;
 
-public class GamePlayer
+public class GamePlayer implements Serializable
 
 {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int turnNr;
 	private int lives;
 	private OldPlayer myOldPlayer;
